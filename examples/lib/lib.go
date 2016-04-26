@@ -15,7 +15,20 @@ limitations under the License.
 
 package lib
 
+import (
+	"github_com/user/vendored"
+	"golang_org/x/net/context"
+)
+
 // Meaning calculates the meaning of Life, the Universe and Everything.
 func Meaning() int {
 	return 42
+}
+
+func NestedVendored() string {
+	return vendored.Vendored()
+}
+
+func MeaningWithContext() context.Context {
+	return context.TODO()
 }

@@ -160,6 +160,8 @@ def emit_go_compile_action(ctx, sources, deps, out_lib, cgo_object=None):
     if source_import.rfind(_VENDOR_PREFIX) != -1:
       source_import = source_import[len(_VENDOR_PREFIX) + source_import.rfind(_VENDOR_PREFIX):]
 
+
+    print("s: %s a: %s" % (source_import, actual_import))
     if source_import != actual_import:
       if source_import in import_map:
         fail("duplicate import %s: adding %s and have %s"
@@ -170,6 +172,7 @@ def emit_go_compile_action(ctx, sources, deps, out_lib, cgo_object=None):
   for s in sources:
     tree_layout[s.path] = prefix + s.path
 
+  print(import_map)
   cmds = symlink_tree_commands(out_dir, tree_layout)
   args = [
       "cd ", out_dir, "&&",

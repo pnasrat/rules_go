@@ -26,4 +26,6 @@ import (
 func main() {
 	fmt.Println("meaning: ", lib.Meaning())
 	fmt.Println("vendored: ", vendored.Vendored())
+	fmt.Println("nested vendored: ", lib.NestedVendored())
+	fmt.Println("context: ", lib.MeaningWithContext())
 }
